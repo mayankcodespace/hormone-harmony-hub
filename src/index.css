@@ -1,0 +1,213 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* HormoneClarity - Calm, Trust-First Palette */
+    --background: 40 30% 98%;
+    --foreground: 220 20% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 20%;
+
+    /* Sage Green - Primary (Trust, Calm, Health) */
+    --primary: 150 25% 45%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Warm Terracotta - Accent */
+    --secondary: 20 50% 92%;
+    --secondary-foreground: 20 40% 30%;
+
+    /* Soft Rose - For warmth */
+    --accent: 350 40% 94%;
+    --accent-foreground: 350 30% 35%;
+
+    --muted: 40 20% 95%;
+    --muted-foreground: 220 15% 50%;
+
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Warning/Caution - Soft amber */
+    --warning: 40 90% 50%;
+    --warning-foreground: 40 90% 15%;
+
+    --border: 40 20% 90%;
+    --input: 40 20% 90%;
+    --ring: 150 25% 45%;
+
+    --radius: 0.75rem;
+
+    /* Custom tokens */
+    --sage-50: 150 30% 97%;
+    --sage-100: 150 25% 93%;
+    --sage-200: 150 22% 85%;
+    --sage-300: 150 20% 70%;
+    --sage-400: 150 22% 55%;
+    --sage-500: 150 25% 45%;
+    --sage-600: 150 28% 35%;
+    --sage-700: 150 30% 28%;
+
+    --terracotta-50: 20 60% 97%;
+    --terracotta-100: 20 55% 92%;
+    --terracotta-200: 20 50% 85%;
+    --terracotta-300: 20 45% 70%;
+    --terracotta-400: 20 40% 55%;
+    --terracotta-500: 20 35% 45%;
+
+    --rose-50: 350 50% 97%;
+    --rose-100: 350 45% 94%;
+    --rose-200: 350 40% 88%;
+
+    /* Sidebar */
+    --sidebar-background: 40 30% 98%;
+    --sidebar-foreground: 220 20% 20%;
+    --sidebar-primary: 150 25% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 150 30% 97%;
+    --sidebar-accent-foreground: 150 28% 35%;
+    --sidebar-border: 40 20% 90%;
+    --sidebar-ring: 150 25% 45%;
+  }
+
+  .dark {
+    --background: 220 20% 10%;
+    --foreground: 40 20% 95%;
+
+    --card: 220 18% 14%;
+    --card-foreground: 40 20% 95%;
+
+    --popover: 220 18% 14%;
+    --popover-foreground: 40 20% 95%;
+
+    --primary: 150 30% 55%;
+    --primary-foreground: 220 20% 10%;
+
+    --secondary: 20 30% 20%;
+    --secondary-foreground: 20 40% 85%;
+
+    --accent: 350 25% 20%;
+    --accent-foreground: 350 40% 85%;
+
+    --muted: 220 15% 18%;
+    --muted-foreground: 220 15% 65%;
+
+    --destructive: 0 62% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --warning: 40 80% 45%;
+    --warning-foreground: 40 90% 95%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 150 30% 55%;
+
+    --sidebar-background: 220 20% 10%;
+    --sidebar-foreground: 40 20% 95%;
+    --sidebar-primary: 150 30% 55%;
+    --sidebar-primary-foreground: 220 20% 10%;
+    --sidebar-accent: 220 15% 18%;
+    --sidebar-accent-foreground: 40 20% 95%;
+    --sidebar-border: 220 15% 20%;
+    --sidebar-ring: 150 30% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-semibold tracking-tight;
+  }
+}
+
+@layer components {
+  .disclaimer-banner {
+    @apply bg-sage-50 border-l-4 border-primary px-4 py-3 text-sm text-muted-foreground;
+  }
+
+  .citation-link {
+    @apply text-primary hover:text-primary/80 underline decoration-dotted underline-offset-2 transition-colors;
+  }
+
+  .hub-card {
+    @apply bg-card rounded-xl border border-border p-6 shadow-sm hover:shadow-md transition-all duration-300;
+  }
+
+  .section-divider {
+    @apply w-full h-px bg-gradient-to-r from-transparent via-border to-transparent my-12;
+  }
+
+  .red-flag-box {
+    @apply bg-destructive/5 border border-destructive/20 rounded-lg p-4;
+  }
+
+  .safe-start-box {
+    @apply bg-sage-50 border border-sage-200 rounded-lg p-4;
+  }
+
+  .myth-box {
+    @apply bg-accent border border-accent-foreground/10 rounded-lg p-4;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.4s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes slideUp {
+    from { 
+      opacity: 0; 
+      transform: translateY(20px); 
+    }
+    to { 
+      opacity: 1; 
+      transform: translateY(0); 
+    }
+  }
+
+  @keyframes scaleIn {
+    from { 
+      opacity: 0; 
+      transform: scale(0.95); 
+    }
+    to { 
+      opacity: 1; 
+      transform: scale(1); 
+    }
+  }
+}
