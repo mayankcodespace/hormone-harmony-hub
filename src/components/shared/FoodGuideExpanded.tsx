@@ -277,3 +277,160 @@ export const moodMacros: MacroInfo[] = [
     ],
   },
 ];
+
+// Men's specific macro data
+export const menTestosteroneMacros: MacroInfo[] = [
+  {
+    name: "Zinc",
+    description: "Essential for testosterone production. Many men are deficient.",
+    indianSources: [
+      { budget: "Budget", examples: ["Pumpkin seeds", "Chickpeas", "Lentils"] },
+      { budget: "Mid-range", examples: ["Eggs", "Paneer", "Cashews"] },
+      { budget: "Higher", examples: ["Oysters", "Lamb", "Beef"] },
+    ],
+  },
+  {
+    name: "Vitamin D",
+    description: "Linked to testosterone levels. Most Indians are deficient.",
+    indianSources: [
+      { budget: "Budget", examples: ["Sunlight exposure", "Fortified milk"] },
+      { budget: "Mid-range", examples: ["Eggs", "Mushrooms", "Fortified cereals"] },
+      { budget: "Higher", examples: ["Fatty fish (salmon, mackerel)", "Cod liver oil"] },
+    ],
+  },
+  {
+    name: "Healthy Fats",
+    description: "Cholesterol is the building block for testosterone. Don't fear fats.",
+    indianSources: [
+      { budget: "Budget", examples: ["Peanuts", "Coconut", "Mustard oil"] },
+      { budget: "Mid-range", examples: ["Ghee", "Almonds", "Olive oil"] },
+      { budget: "Higher", examples: ["Avocado", "Fatty fish", "Walnuts"] },
+    ],
+  },
+  {
+    name: "Protein",
+    description: "Supports muscle mass and hormone production.",
+    indianSources: [
+      { budget: "Budget", examples: ["Dal (any)", "Eggs", "Soya chunks", "Chana"] },
+      { budget: "Mid-range", examples: ["Paneer", "Chicken", "Fish"] },
+      { budget: "Higher", examples: ["Whey protein", "Lean meats", "Greek yogurt"] },
+    ],
+  },
+];
+
+export const menWeightMacros: MacroInfo[] = [
+  {
+    name: "Protein",
+    description: "Critical for muscle preservation during fat loss. Aim for 1.6-2g per kg body weight.",
+    indianSources: [
+      { budget: "Budget", examples: ["Eggs", "Dal (double portion)", "Soya chunks", "Chana"] },
+      { budget: "Mid-range", examples: ["Paneer", "Chicken breast", "Fish"] },
+      { budget: "Higher", examples: ["Whey protein", "Lean meats", "Cottage cheese"] },
+    ],
+  },
+  {
+    name: "Fiber",
+    description: "Keeps you full longer and helps blood sugar control.",
+    indianSources: [
+      { budget: "Budget", examples: ["Vegetables (any)", "Whole dal", "Oats"] },
+      { budget: "Mid-range", examples: ["Salads", "Flaxseeds", "Psyllium husk"] },
+      { budget: "Higher", examples: ["Chia seeds", "Mixed vegetable smoothies"] },
+    ],
+  },
+  {
+    name: "Complex Carbs",
+    description: "Don't eliminate carbs — choose smart ones and time them around activity.",
+    indianSources: [
+      { budget: "Budget", examples: ["Oats", "Brown rice (small portion)", "Ragi"] },
+      { budget: "Mid-range", examples: ["Sweet potato", "Jowar roti", "Bajra roti"] },
+      { budget: "Higher", examples: ["Quinoa", "Buckwheat"] },
+    ],
+  },
+  {
+    name: "Healthy Fats",
+    description: "Essential for hormone production. Don't go too low-fat.",
+    indianSources: [
+      { budget: "Budget", examples: ["Peanuts", "Coconut", "Mustard oil"] },
+      { budget: "Mid-range", examples: ["Almonds", "Ghee (moderate)", "Olive oil"] },
+      { budget: "Higher", examples: ["Avocado", "Fatty fish", "Nut butters"] },
+    ],
+  },
+];
+
+export const menMoodMacros: MacroInfo[] = [
+  {
+    name: "Magnesium",
+    description: "The 'calm mineral'. Helps with stress, sleep, and anxiety.",
+    indianSources: [
+      { budget: "Budget", examples: ["Peanuts", "Bananas", "Spinach"] },
+      { budget: "Mid-range", examples: ["Dark chocolate (70%+)", "Pumpkin seeds", "Almonds"] },
+      { budget: "Higher", examples: ["Cashews", "Avocado"] },
+    ],
+  },
+  {
+    name: "Omega-3 Fats",
+    description: "Anti-inflammatory, supports brain health and mood regulation.",
+    indianSources: [
+      { budget: "Budget", examples: ["Flaxseeds (alsi)", "Walnuts"] },
+      { budget: "Mid-range", examples: ["Chia seeds", "Hemp seeds"] },
+      { budget: "Higher", examples: ["Fatty fish (salmon, mackerel)", "Fish oil supplements"] },
+    ],
+  },
+  {
+    name: "B Vitamins",
+    description: "Essential for nervous system and energy production.",
+    indianSources: [
+      { budget: "Budget", examples: ["Whole grains", "Eggs", "Dalia"] },
+      { budget: "Mid-range", examples: ["Chicken", "Fish", "Curd"] },
+      { budget: "Higher", examples: ["Liver", "Fortified foods"] },
+    ],
+  },
+  {
+    name: "Protein",
+    description: "Amino acids are precursors for neurotransmitters like dopamine and serotonin.",
+    indianSources: [
+      { budget: "Budget", examples: ["Dal", "Eggs", "Soya chunks"] },
+      { budget: "Mid-range", examples: ["Paneer", "Chicken", "Fish"] },
+      { budget: "Higher", examples: ["Whey protein", "Lean meats"] },
+    ],
+  },
+];
+
+export const menSexualHealthMacros: MacroInfo[] = [
+  {
+    name: "Zinc",
+    description: "Critical for testosterone and sperm production.",
+    indianSources: [
+      { budget: "Budget", examples: ["Pumpkin seeds", "Chickpeas", "Lentils"] },
+      { budget: "Mid-range", examples: ["Eggs", "Paneer", "Cashews"] },
+      { budget: "Higher", examples: ["Oysters", "Lamb", "Beef"] },
+    ],
+  },
+  {
+    name: "L-Arginine (Amino Acid)",
+    description: "Supports blood flow. Found naturally in protein-rich foods.",
+    indianSources: [
+      { budget: "Budget", examples: ["Peanuts", "Lentils", "Chickpeas"] },
+      { budget: "Mid-range", examples: ["Chicken", "Fish", "Dairy"] },
+      { budget: "Higher", examples: ["Turkey", "Pumpkin seeds", "Soybeans"] },
+    ],
+  },
+  {
+    name: "Antioxidants",
+    description: "Protect sperm quality and vascular health.",
+    indianSources: [
+      { budget: "Budget", examples: ["Tomatoes", "Spinach", "Carrots"] },
+      { budget: "Mid-range", examples: ["Berries", "Pomegranate", "Green tea"] },
+      { budget: "Higher", examples: ["Blueberries", "Dark chocolate", "Acai"] },
+    ],
+  },
+  {
+    name: "Healthy Fats",
+    description: "Support hormone production and cardiovascular health.",
+    indianSources: [
+      { budget: "Budget", examples: ["Peanuts", "Coconut", "Mustard oil"] },
+      { budget: "Mid-range", examples: ["Almonds", "Olive oil", "Ghee"] },
+      { budget: "Higher", examples: ["Avocado", "Fatty fish", "Walnuts"] },
+    ],
+  },
+];
