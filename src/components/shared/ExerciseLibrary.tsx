@@ -379,3 +379,232 @@ export const moodExercises: ExerciseCategory[] = [
     ],
   },
 ];
+
+// Men's specific exercise data
+export const menTestosteroneExercises: ExerciseCategory[] = [
+  {
+    title: "Strength Training (Testosterone Boosting)",
+    description: "Compound movements that stimulate testosterone production naturally.",
+    exercises: [
+      {
+        name: "Squats",
+        duration: "15-20 min",
+        description: "King of exercises. Engages largest muscle groups, boosts testosterone.",
+        youtubeUrl: "https://www.youtube.com/watch?v=xHWEDBCW0dg",
+        youtubeChannel: "Charlie Follows",
+      },
+      {
+        name: "Deadlifts",
+        duration: "15-20 min",
+        description: "Full body compound movement. Start light, focus on form.",
+      },
+      {
+        name: "Bench Press / Push-ups",
+        duration: "15-20 min",
+        description: "Chest and triceps. Push-ups if no gym access.",
+      },
+      {
+        name: "Pull-ups / Rows",
+        duration: "15-20 min",
+        description: "Back and biceps. Essential for balanced physique.",
+      },
+    ],
+  },
+  {
+    title: "Recovery & Sleep Optimization",
+    description: "Rest is when testosterone is produced. Don't overtrain.",
+    exercises: [
+      {
+        name: "Stretching Routine",
+        duration: "10-15 min",
+        description: "Post-workout stretching aids recovery.",
+      },
+      {
+        name: "Light Walking",
+        duration: "20-30 min",
+        description: "Active recovery on rest days. Reduces cortisol.",
+      },
+      {
+        name: "Yoga for Men",
+        duration: "20-30 min",
+        description: "Flexibility and stress reduction. Underrated for men.",
+        youtubeUrl: "https://www.youtube.com/watch?v=4TLHLNX65-4",
+        youtubeChannel: "Yoga With Adriene",
+      },
+      {
+        name: "Sleep Hygiene",
+        duration: "7-9 hours",
+        description: "Quality sleep is non-negotiable for testosterone.",
+      },
+    ],
+  },
+];
+
+export const menWeightExercises: ExerciseCategory[] = [
+  {
+    title: "Strength Training (Fat Loss Priority)",
+    description: "Building muscle increases resting metabolism. This is your biggest lever.",
+    exercises: [
+      {
+        name: "Full Body Strength",
+        duration: "45-60 min",
+        description: "Compound movements 3x per week. Squats, deadlifts, presses, rows.",
+        youtubeUrl: "https://www.youtube.com/watch?v=xHWEDBCW0dg",
+        youtubeChannel: "Charlie Follows",
+      },
+      {
+        name: "Upper Body Focus",
+        duration: "30-40 min",
+        description: "Chest, back, shoulders, arms. Alternate with lower body.",
+      },
+      {
+        name: "Lower Body Focus",
+        duration: "30-40 min",
+        description: "Legs and glutes. Largest muscle groups = most calorie burn.",
+      },
+      {
+        name: "Core Work",
+        duration: "15-20 min",
+        description: "Planks, leg raises, ab wheel. 2-3x per week.",
+      },
+    ],
+  },
+  {
+    title: "Metabolic Movement",
+    description: "Daily movement matters more than intense gym sessions alone.",
+    exercises: [
+      {
+        name: "Daily Walking",
+        duration: "30-60 min",
+        description: "7,000-10,000 steps daily. Most underrated fat loss tool.",
+      },
+      {
+        name: "Post-Meal Walks",
+        duration: "10-15 min",
+        description: "Walk after meals. Significantly helps blood sugar.",
+      },
+      {
+        name: "NEAT Activities",
+        duration: "Throughout day",
+        description: "Take stairs, stand more, pace during calls.",
+      },
+      {
+        name: "Light Cardio",
+        duration: "20-30 min",
+        description: "Cycling, swimming, jogging. 2-3x per week max.",
+      },
+    ],
+  },
+];
+
+export const menMoodExercises: ExerciseCategory[] = [
+  {
+    title: "Stress-Reducing Movement",
+    description: "Exercise that calms the nervous system and reduces cortisol.",
+    exercises: [
+      {
+        name: "Walking in Nature",
+        duration: "30-45 min",
+        description: "Proven to reduce cortisol and improve mood significantly.",
+      },
+      {
+        name: "Yoga for Stress",
+        duration: "20-30 min",
+        description: "Breathing-focused yoga. Great for anxiety.",
+        youtubeUrl: "https://www.youtube.com/watch?v=OMZSf7WOB78",
+        youtubeChannel: "SarahBethYoga",
+      },
+      {
+        name: "Swimming",
+        duration: "20-30 min",
+        description: "Rhythmic, meditative. Water is naturally calming.",
+      },
+      {
+        name: "Tai Chi / Qigong",
+        duration: "20-30 min",
+        description: "Slow, flowing movements. Excellent for stress.",
+      },
+    ],
+  },
+  {
+    title: "Mood-Boosting Exercise",
+    description: "Movement that releases endorphins and improves mental state.",
+    exercises: [
+      {
+        name: "Strength Training",
+        duration: "30-45 min",
+        description: "Builds confidence and releases endorphins. Proven antidepressant.",
+      },
+      {
+        name: "Running / Jogging",
+        duration: "20-30 min",
+        description: "Runner's high is real. Start slow if new.",
+      },
+      {
+        name: "Sports / Games",
+        duration: "30-60 min",
+        description: "Cricket, badminton, football. Social + exercise.",
+      },
+      {
+        name: "Martial Arts",
+        duration: "45-60 min",
+        description: "Discipline, focus, stress release. Great for mental health.",
+      },
+    ],
+  },
+];
+
+export const menSexualHealthExercises: ExerciseCategory[] = [
+  {
+    title: "Cardiovascular Health",
+    description: "Good blood flow is essential for sexual function. Heart health = sexual health.",
+    exercises: [
+      {
+        name: "Brisk Walking",
+        duration: "30-45 min",
+        description: "Simple, effective. Improves cardiovascular health.",
+      },
+      {
+        name: "Cycling",
+        duration: "20-30 min",
+        description: "Great cardio. Use proper seat to avoid issues.",
+      },
+      {
+        name: "Swimming",
+        duration: "20-30 min",
+        description: "Full body, low impact. Excellent for circulation.",
+      },
+      {
+        name: "Interval Training",
+        duration: "20-25 min",
+        description: "Short bursts improve heart health. 2x per week max.",
+      },
+    ],
+  },
+  {
+    title: "Strength & Hormone Support",
+    description: "Strength training supports testosterone and overall vitality.",
+    exercises: [
+      {
+        name: "Compound Lifts",
+        duration: "30-45 min",
+        description: "Squats, deadlifts, presses. Boost testosterone naturally.",
+      },
+      {
+        name: "Pelvic Floor Exercises",
+        duration: "5-10 min",
+        description: "Kegels for men. Can help with control and function.",
+      },
+      {
+        name: "Core Strengthening",
+        duration: "15-20 min",
+        description: "Strong core supports overall physical performance.",
+      },
+      {
+        name: "Hip Mobility",
+        duration: "10-15 min",
+        description: "Flexibility in hips and pelvis. Often neglected.",
+      },
+    ],
+  },
+];
