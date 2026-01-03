@@ -12,7 +12,7 @@ import {
 import { cn } from "@/lib/utils";
 import logo from "@/assets/logo.png";
 
-const navLinks = [
+const womenNavLinks = [
   { href: "/", label: "Home" },
   { href: "/start-here", label: "Start Here" },
   {
@@ -28,10 +28,29 @@ const navLinks = [
   { href: "/about", label: "About" },
 ];
 
+const menNavLinks = [
+  { href: "/men", label: "Home" },
+  { href: "/men/start-here", label: "Start Here" },
+  {
+    label: "Topics",
+    children: [
+      { href: "/men/testosterone", label: "Testosterone & Energy" },
+      { href: "/men/weight", label: "Weight & Metabolism" },
+      { href: "/men/mood", label: "Mood & Stress" },
+      { href: "/men/sexual-health", label: "Sexual Health" },
+    ],
+  },
+  { href: "/men/resources", label: "Resources" },
+  { href: "/men/about", label: "About" },
+];
+
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const location = useLocation();
+  
+  const isMenSection = location.pathname.startsWith("/men");
+  const navLinks = isMenSection ? menNavLinks : womenNavLinks;
 
   const isActive = (href: string) => location.pathname === href;
 
@@ -39,7 +58,7 @@ export function Navbar() {
     <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
       <nav className="container flex h-16 items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2">
+        <Link to={isMenSection ? "/men" : "/"} className="flex items-center gap-2">
           <img src={logo} alt="HormoneClarity" className="h-10 w-10" />
           <span className="font-serif text-xl font-semibold text-foreground">
             HormoneClarity
@@ -86,6 +105,15 @@ export function Navbar() {
               </Link>
             )
           )}
+          
+          {/* Gender Switcher */}
+          <div className="ml-2 border-l border-border pl-2">
+            <Link to={isMenSection ? "/" : "/men"}>
+              <Button variant="outline" size="sm" className="text-xs">
+                {isMenSection ? "Women's Health" : "Men's Health"}
+              </Button>
+            </Link>
+          </div>
         </div>
 
         {/* Search & Mobile Menu */}
@@ -141,6 +169,15 @@ export function Navbar() {
               />
             </div>
 
+            {/* Gender Switcher Mobile */}
+            <Link
+              to={isMenSection ? "/" : "/men"}
+              onClick={() => setIsOpen(false)}
+              className="block rounded-lg px-3 py-2 text-sm font-medium bg-primary/10 text-primary text-center mb-4"
+            >
+              Switch to {isMenSection ? "Women's" : "Men's"} Health
+            </Link>
+
             {navLinks.map((link) =>
               link.children ? (
                 <div key={link.label} className="space-y-1">
@@ -178,7 +215,7 @@ export function Navbar() {
 
             {/* Contact Link */}
             <Link
-              to="/contact"
+              to={isMenSection ? "/men/contact" : "/contact"}
               onClick={() => setIsOpen(false)}
               className="block rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:bg-sage-50"
             >
