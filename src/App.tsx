@@ -60,6 +60,53 @@ import NaturalRemediesArticle from "./pages/articles/mood/NaturalRemediesArticle
 import WhenToSeekHelpArticle from "./pages/articles/mood/WhenToSeekHelpArticle";
 import StressManagementArticle from "./pages/articles/mood/StressManagementArticle";
 
+// Men's pages
+import MenIndexPage from "./pages/men/MenIndexPage";
+import TestosteronePage from "./pages/men/TestosteronePage";
+import WeightMetabolismPage from "./pages/men/WeightMetabolismPage";
+import MoodStressPage from "./pages/men/MoodStressPage";
+import SexualHealthPage from "./pages/men/SexualHealthPage";
+import MenStartHerePage from "./pages/men/MenStartHerePage";
+import MenResourcesPage from "./pages/men/MenResourcesPage";
+import MenQuizPage from "./pages/men/MenQuizPage";
+import MenFindDoctorPage from "./pages/men/MenFindDoctorPage";
+import MenAboutPage from "./pages/men/MenAboutPage";
+import MenContactPage from "./pages/men/MenContactPage";
+
+// Men's articles - Testosterone
+import TestosteroneBasicsArticle from "./pages/articles/men/testosterone/TestosteroneBasicsArticle";
+import LowTSignsArticle from "./pages/articles/men/testosterone/LowTSignsArticle";
+import LifestyleTestosteroneArticle from "./pages/articles/men/testosterone/LifestyleTestosteroneArticle";
+import TestosteroneTestingArticle from "./pages/articles/men/testosterone/TestosteroneTestingArticle";
+import CortisolConnectionArticle from "./pages/articles/men/testosterone/CortisolConnectionArticle";
+import SleepTestosteroneArticle from "./pages/articles/men/testosterone/SleepTestosteroneArticle";
+import ExerciseTestosteroneArticle from "./pages/articles/men/testosterone/ExerciseTestosteroneArticle";
+import TRTFactsArticle from "./pages/articles/men/testosterone/TRTFactsArticle";
+
+// Men's articles - Weight
+import BellyFatArticle from "./pages/articles/men/weight/BellyFatArticle";
+import InsulinResistanceMenArticle from "./pages/articles/men/weight/InsulinResistanceMenArticle";
+import CortisolFatArticle from "./pages/articles/men/weight/CortisolFatArticle";
+import SleepWeightMenArticle from "./pages/articles/men/weight/SleepWeightMenArticle";
+import SustainableApproachMenArticle from "./pages/articles/men/weight/SustainableApproachMenArticle";
+import ExerciseGuideMenArticle from "./pages/articles/men/weight/ExerciseGuideMenArticle";
+import IndianDietMenArticle from "./pages/articles/men/weight/IndianDietMenArticle";
+import ThyroidMenArticle from "./pages/articles/men/weight/ThyroidMenArticle";
+
+// Men's articles - Mood
+import StressHormonesArticle from "./pages/articles/men/mood/StressHormonesArticle";
+import AnxietyHormonesArticle from "./pages/articles/men/mood/AnxietyHormonesArticle";
+import SleepDeprivationArticle from "./pages/articles/men/mood/SleepDeprivationArticle";
+import BurnoutArticle from "./pages/articles/men/mood/BurnoutArticle";
+import TestosteroneMoodArticle from "./pages/articles/men/mood/TestosteroneMoodArticle";
+import StressManagementMenArticle from "./pages/articles/men/mood/StressManagementMenArticle";
+import WhenToSeekHelpMenArticle from "./pages/articles/men/mood/WhenToSeekHelpMenArticle";
+import NutritionMentalHealthMenArticle from "./pages/articles/men/mood/NutritionMentalHealthMenArticle";
+
+// Men's articles - Sexual Health
+import TestosteroneLibidoArticle from "./pages/articles/men/sexual/TestosteroneLibidoArticle";
+import ErectileFunctionArticle from "./pages/articles/men/sexual/ErectileFunctionArticle";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -124,6 +171,53 @@ const App = () => (
           <Route path="/mood-pms/natural-remedies" element={<NaturalRemediesArticle />} />
           <Route path="/mood-pms/when-to-seek-help" element={<WhenToSeekHelpArticle />} />
           <Route path="/mood-pms/stress-management" element={<StressManagementArticle />} />
+
+          {/* Men's Hub Pages */}
+          <Route path="/men" element={<MenIndexPage />} />
+          <Route path="/men/testosterone" element={<TestosteronePage />} />
+          <Route path="/men/weight" element={<WeightMetabolismPage />} />
+          <Route path="/men/mood" element={<MoodStressPage />} />
+          <Route path="/men/sexual-health" element={<SexualHealthPage />} />
+          <Route path="/men/start-here" element={<MenStartHerePage />} />
+          <Route path="/men/resources" element={<MenResourcesPage />} />
+          <Route path="/men/quiz" element={<MenQuizPage />} />
+          <Route path="/men/find-doctor" element={<MenFindDoctorPage />} />
+          <Route path="/men/about" element={<MenAboutPage />} />
+          <Route path="/men/contact" element={<MenContactPage />} />
+
+          {/* Men's Testosterone articles */}
+          <Route path="/men/testosterone/basics" element={<TestosteroneBasicsArticle />} />
+          <Route path="/men/testosterone/low-t-signs" element={<LowTSignsArticle />} />
+          <Route path="/men/testosterone/lifestyle" element={<LifestyleTestosteroneArticle />} />
+          <Route path="/men/testosterone/testing" element={<TestosteroneTestingArticle />} />
+          <Route path="/men/testosterone/cortisol-connection" element={<CortisolConnectionArticle />} />
+          <Route path="/men/testosterone/sleep" element={<SleepTestosteroneArticle />} />
+          <Route path="/men/testosterone/exercise" element={<ExerciseTestosteroneArticle />} />
+          <Route path="/men/testosterone/trt-facts" element={<TRTFactsArticle />} />
+
+          {/* Men's Weight articles */}
+          <Route path="/men/weight/belly-fat" element={<BellyFatArticle />} />
+          <Route path="/men/weight/insulin-resistance" element={<InsulinResistanceMenArticle />} />
+          <Route path="/men/weight/cortisol-fat" element={<CortisolFatArticle />} />
+          <Route path="/men/weight/sleep-weight" element={<SleepWeightMenArticle />} />
+          <Route path="/men/weight/sustainable-approach" element={<SustainableApproachMenArticle />} />
+          <Route path="/men/weight/exercise-guide" element={<ExerciseGuideMenArticle />} />
+          <Route path="/men/weight/indian-diet" element={<IndianDietMenArticle />} />
+          <Route path="/men/weight/thyroid" element={<ThyroidMenArticle />} />
+
+          {/* Men's Mood articles */}
+          <Route path="/men/mood/stress-hormones" element={<StressHormonesArticle />} />
+          <Route path="/men/mood/anxiety-hormones" element={<AnxietyHormonesArticle />} />
+          <Route path="/men/mood/sleep-deprivation" element={<SleepDeprivationArticle />} />
+          <Route path="/men/mood/burnout" element={<BurnoutArticle />} />
+          <Route path="/men/mood/testosterone-mood" element={<TestosteroneMoodArticle />} />
+          <Route path="/men/mood/stress-management" element={<StressManagementMenArticle />} />
+          <Route path="/men/mood/when-to-seek-help" element={<WhenToSeekHelpMenArticle />} />
+          <Route path="/men/mood/nutrition-mental-health" element={<NutritionMentalHealthMenArticle />} />
+
+          {/* Men's Sexual Health articles */}
+          <Route path="/men/sexual-health/testosterone-libido" element={<TestosteroneLibidoArticle />} />
+          <Route path="/men/sexual-health/erectile-function" element={<ErectileFunctionArticle />} />
           
           <Route path="*" element={<NotFound />} />
         </Routes>
