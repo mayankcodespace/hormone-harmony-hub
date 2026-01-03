@@ -159,7 +159,7 @@ export default function WeightMetabolismPage() {
           {/* Red Flags */}
           <RedFlagsBox 
             title="When to See a Doctor"
-            flags={redFlags}
+            items={redFlags}
           />
 
           {/* Food Guide */}
@@ -185,7 +185,7 @@ export default function WeightMetabolismPage() {
           {/* FAQs */}
           <FAQSection 
             title="Common Questions"
-            faqs={faqs}
+            items={faqs}
           />
 
           {/* CTA */}
