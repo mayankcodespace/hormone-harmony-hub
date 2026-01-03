@@ -160,7 +160,7 @@ export default function TestosteronePage() {
           {/* Red Flags */}
           <RedFlagsBox 
             title="When to See a Doctor"
-            flags={redFlags}
+            items={redFlags}
           />
 
           {/* Food Guide */}
@@ -186,7 +186,7 @@ export default function TestosteronePage() {
           {/* FAQs */}
           <FAQSection 
             title="Common Questions"
-            faqs={faqs}
+            items={faqs}
           />
 
           {/* CTA */}

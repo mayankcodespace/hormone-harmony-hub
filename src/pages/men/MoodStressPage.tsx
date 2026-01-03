@@ -168,7 +168,7 @@ export default function MoodStressPage() {
           {/* Red Flags */}
           <RedFlagsBox 
             title="When to Seek Professional Help"
-            flags={redFlags}
+            items={redFlags}
           />
 
           {/* Food Guide */}
@@ -194,7 +194,7 @@ export default function MoodStressPage() {
           {/* FAQs */}
           <FAQSection 
             title="Common Questions"
-            faqs={faqs}
+            items={faqs}
           />
 
           {/* CTA */}
