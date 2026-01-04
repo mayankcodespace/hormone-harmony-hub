@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, Search, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -35,8 +34,8 @@ const menNavLinks = [
     label: "Topics",
     children: [
       { href: "/men/testosterone", label: "Testosterone & Energy" },
-      { href: "/men/weight", label: "Weight & Metabolism" },
-      { href: "/men/mood", label: "Mood & Stress" },
+      { href: "/men/weight-metabolism", label: "Weight & Metabolism" },
+      { href: "/men/mood-stress", label: "Mood & Stress" },
       { href: "/men/sexual-health", label: "Sexual Health" },
     ],
   },
@@ -46,7 +45,6 @@ const menNavLinks = [
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
   const location = useLocation();
   
   const isMenSection = location.pathname.startsWith("/men");
@@ -116,33 +114,8 @@ export function Navbar() {
           </div>
         </div>
 
-        {/* Search & Mobile Menu */}
+        {/* Mobile Menu Toggle */}
         <div className="flex items-center gap-2">
-          {/* Search Toggle */}
-          <div className="relative hidden sm:block">
-            {isSearchOpen ? (
-              <div className="flex items-center gap-2 animate-fade-in">
-                <Input
-                  type="search"
-                  placeholder="Search topics..."
-                  className="w-48 h-9"
-                  autoFocus
-                  onBlur={() => setIsSearchOpen(false)}
-                />
-              </div>
-            ) : (
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setIsSearchOpen(true)}
-                aria-label="Search"
-              >
-                <Search className="h-5 w-5" />
-              </Button>
-            )}
-          </div>
-
-          {/* Mobile Menu Toggle */}
           <Button
             variant="ghost"
             size="icon"
@@ -159,16 +132,6 @@ export function Navbar() {
       {isOpen && (
         <div className="border-t border-border bg-background md:hidden animate-slide-up">
           <div className="container py-4 space-y-2">
-            {/* Mobile Search */}
-            <div className="relative mb-4">
-              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
-              <Input
-                type="search"
-                placeholder="Search topics..."
-                className="pl-9"
-              />
-            </div>
-
             {/* Gender Switcher Mobile */}
             <Link
               to={isMenSection ? "/" : "/men"}
