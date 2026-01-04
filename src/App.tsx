@@ -175,8 +175,8 @@ const App = () => (
           {/* Men's Hub Pages */}
           <Route path="/men" element={<MenIndexPage />} />
           <Route path="/men/testosterone" element={<TestosteronePage />} />
-          <Route path="/men/weight" element={<WeightMetabolismPage />} />
-          <Route path="/men/mood" element={<MoodStressPage />} />
+          <Route path="/men/weight-metabolism" element={<WeightMetabolismPage />} />
+          <Route path="/men/mood-stress" element={<MoodStressPage />} />
           <Route path="/men/sexual-health" element={<SexualHealthPage />} />
           <Route path="/men/start-here" element={<MenStartHerePage />} />
           <Route path="/men/resources" element={<MenResourcesPage />} />

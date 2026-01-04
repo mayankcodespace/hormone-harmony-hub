@@ -1,78 +1,49 @@
+import { Heart, Check, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Layout } from "@/components/layout/Layout";
 import { Breadcrumb } from "@/components/shared/Breadcrumb";
 import { DisclaimerBanner } from "@/components/shared/DisclaimerBanner";
 import { RedFlagsBox } from "@/components/shared/RedFlagsBox";
-import { FAQSection } from "@/components/shared/FAQSection";
+import { FAQSection, FAQItem } from "@/components/shared/FAQSection";
+import { SectionDivider } from "@/components/shared/SectionDivider";
+import { Button } from "@/components/ui/button";
 import { FoodGuideExpanded, menSexualHealthMacros } from "@/components/shared/FoodGuideExpanded";
 import { ExerciseLibrary, menSexualHealthExercises } from "@/components/shared/ExerciseLibrary";
-import { Heart, ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import gentleYoga from "@/assets/images/gentle-yoga.jpg";
 
-const articles = [
+const myths = [
   {
-    title: "Testosterone & Libido",
-    description: "Understanding the hormone-libido connection.",
-    href: "/men/sexual-health/testosterone-libido",
+    myth: "Sexual issues are just psychological",
+    fact: "Many have physical/hormonal causes — testosterone, blood flow, medications, and stress all play roles.",
   },
   {
-    title: "Erectile Function Basics",
-    description: "What causes issues and when to seek help.",
-    href: "/men/sexual-health/erectile-function",
+    myth: "ED only happens to older men",
+    fact: "ED can occur at any age. Lifestyle factors, stress, and health conditions affect men of all ages.",
   },
   {
-    title: "Stress & Sexual Health",
-    description: "How cortisol affects desire and performance.",
-    href: "/men/sexual-health/stress-impact",
+    myth: "Low libido means something is wrong with you",
+    fact: "Libido naturally varies. Stress, sleep, hormones, and relationship factors all influence desire.",
   },
   {
-    title: "Sleep & Sexual Function",
-    description: "Why quality sleep matters for sexual health.",
-    href: "/men/sexual-health/sleep-impact",
-  },
-  {
-    title: "Cardiovascular Health Connection",
-    description: "Heart health and sexual health are linked.",
-    href: "/men/sexual-health/cardiovascular",
-  },
-  {
-    title: "Energy & Vitality",
-    description: "Building sustainable energy, not quick fixes.",
-    href: "/men/sexual-health/energy-vitality",
-  },
-  {
-    title: "Dopamine & Reward Pathways",
-    description: "How overstimulation affects desire (porn, etc.).",
-    href: "/men/sexual-health/dopamine-balance",
-  },
-  {
-    title: "Fertility Basics",
-    description: "What affects sperm quality and fertility.",
-    href: "/men/sexual-health/fertility",
+    myth: "Supplements can fix everything",
+    fact: "Most supplements have little evidence. Address root causes — sleep, stress, hormones, cardiovascular health.",
   },
 ];
 
-const faqs = [
-  {
-    question: "Is low libido normal as I age?",
-    answer: "Some decline is normal, but significant loss of interest may indicate hormonal issues (low testosterone, high cortisol), relationship factors, stress, or health conditions. It's worth investigating rather than accepting as inevitable."
-  },
-  {
-    question: "Can stress really affect sexual function?",
-    answer: "Absolutely. Stress raises cortisol, which suppresses testosterone and affects blood flow. The mind-body connection is real. Many men find that addressing stress significantly improves sexual health."
-  },
-  {
-    question: "Is porn affecting my sexual health?",
-    answer: "It can. Excessive porn use can alter dopamine pathways, creating unrealistic expectations and potentially contributing to desire or function issues with real partners. Consider taking breaks and observing the effects."
-  },
-  {
-    question: "Does exercise improve sexual health?",
-    answer: "Yes. Regular exercise improves cardiovascular health, testosterone levels, mood, and body confidence — all of which support sexual health. Strength training in particular is beneficial."
-  },
-  {
-    question: "When should I see a doctor for ED?",
-    answer: "If erectile issues are persistent (not occasional), affecting your relationship, or accompanied by other symptoms. ED can be an early warning sign of cardiovascular problems, so it's worth getting checked."
-  },
+const triggers = [
+  { category: "Hormonal", items: ["Low testosterone", "High cortisol", "Thyroid issues", "Elevated prolactin"] },
+  { category: "Lifestyle", items: ["Poor sleep", "Chronic stress", "Sedentary lifestyle", "Excess alcohol"] },
+  { category: "Physical", items: ["Cardiovascular issues", "Obesity", "Diabetes", "Medications"] },
+  { category: "Psychological", items: ["Stress/anxiety", "Depression", "Relationship issues", "Performance anxiety"] },
+];
+
+const safeSteps = [
+  "Prioritize cardiovascular health — heart health = sexual health",
+  "Get quality sleep — testosterone is produced during sleep",
+  "Manage stress actively — cortisol suppresses testosterone",
+  "Exercise regularly — especially strength training",
+  "Limit alcohol — it impairs function despite lowering inhibition",
+  "Address underlying health conditions",
 ];
 
 const redFlags = [
@@ -82,125 +53,245 @@ const redFlags = [
   "Blood in semen or urine",
   "Testicular pain or lumps",
   "ED with chest pain or shortness of breath (cardiovascular warning)",
-  "Fertility concerns after 12+ months of trying",
+];
+
+const faqs: FAQItem[] = [
+  {
+    question: "Is low libido normal as I age?",
+    answer: "Some decline is normal, but significant loss of interest may indicate hormonal issues, health conditions, or stress. It's worth investigating rather than accepting as inevitable.",
+  },
+  {
+    question: "Can stress really affect sexual function?",
+    answer: "Absolutely. Stress raises cortisol, which suppresses testosterone and affects blood flow. Many men find that addressing stress significantly improves sexual health.",
+  },
+  {
+    question: "Does exercise improve sexual health?",
+    answer: "Yes. Regular exercise improves cardiovascular health, testosterone levels, mood, and body confidence — all of which support sexual health.",
+  },
+  {
+    question: "When should I see a doctor for ED?",
+    answer: "If erectile issues are persistent, affecting your relationship, or accompanied by other symptoms. ED can be an early warning sign of cardiovascular problems.",
+  },
+];
+
+const articles = [
+  { title: "Testosterone & Libido", href: "/men/sexual-health/testosterone-libido" },
+  { title: "Erectile Function Basics", href: "/men/sexual-health/erectile-function" },
 ];
 
 export default function SexualHealthPage() {
   return (
     <Layout>
-      <DisclaimerBanner />
-      
-      <section className="bg-gradient-to-b from-sage-50 to-background py-12">
+      {/* Hero Section */}
+      <section className="bg-sage-50 py-16">
         <div className="container">
-          <Breadcrumb 
-            items={[
-              { label: "Men's Health", href: "/men" },
-              { label: "Sexual Health & Energy" }
-            ]} 
-          />
-          
-          <div className="max-w-3xl mx-auto">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
-                <Heart className="h-7 w-7" />
-              </div>
-              <div>
-                <h1 className="font-serif text-3xl sm:text-4xl font-bold">
-                  Sexual Health & Energy
-                </h1>
-                <p className="text-muted-foreground mt-1">
-                  Understanding libido, vitality, and the hormonal connections
-                </p>
+          <Breadcrumb items={[
+            { label: "Men's Health", href: "/men" },
+            { label: "Sexual Health & Energy" }
+          ]} />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mt-8">
+            <div>
+              <h1 className="font-serif text-4xl sm:text-5xl font-bold mb-4">
+                Sexual Health & Energy
+              </h1>
+              <p className="text-lg text-muted-foreground max-w-xl">
+                Understanding libido, vitality, and the hormonal connections — 
+                with no shame, no judgment, just clarity.
+              </p>
+            </div>
+
+            <div className="relative">
+              <div className="rounded-3xl overflow-hidden bg-white shadow-sm aspect-[4/3]">
+                <img
+                  src={gentleYoga}
+                  alt="Wellness and vitality"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <div className="container py-12">
-        <div className="max-w-3xl mx-auto space-y-12">
-          {/* Introduction */}
-          <section className="prose prose-sage max-w-none">
-            <p className="text-lg text-muted-foreground">
-              Sexual health is often a taboo topic, but it's an important aspect of overall wellbeing. 
-              Libido, energy, and sexual function are influenced by hormones (testosterone, cortisol), 
-              cardiovascular health, mental health, sleep, and lifestyle factors.
-            </p>
-            <p className="text-muted-foreground">
-              This section provides educational information — no shame, no judgment, no quick-fix promises. 
-              Understanding the factors at play can help you take informed action or know when to seek 
-              professional help.
-            </p>
-          </section>
+      <div className="container py-8">
+        <DisclaimerBanner variant="inline" className="mb-8" />
 
-          {/* Articles Grid */}
-          <section>
-            <h2 className="font-serif text-2xl font-semibold mb-6">Explore Topics</h2>
-            <div className="grid sm:grid-cols-2 gap-4">
-              {articles.map((article) => (
-                <Link
-                  key={article.href}
-                  to={article.href}
-                  className="group rounded-lg border border-border bg-card p-4 hover:border-primary/50 hover:shadow-md transition-all"
-                >
-                  <h3 className="font-semibold group-hover:text-primary transition-colors">
-                    {article.title}
-                  </h3>
-                  <p className="text-sm text-muted-foreground mt-1">
-                    {article.description}
-                  </p>
-                  <span className="inline-flex items-center text-sm text-primary mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                    Read more <ArrowRight className="ml-1 h-3 w-3" />
-                  </span>
-                </Link>
-              ))}
+        <div className="grid lg:grid-cols-3 gap-8">
+          {/* Main Content */}
+          <div className="lg:col-span-2 space-y-12">
+            {/* What's Happening */}
+            <section>
+              <h2 className="font-serif text-2xl font-semibold mb-4">Why hormones affect sexual health</h2>
+              <div className="prose prose-sage max-w-none text-muted-foreground space-y-4">
+                <p>
+                  Sexual health is often a taboo topic, but it's an important aspect of overall wellbeing. 
+                  Libido, energy, and sexual function are influenced by hormones (testosterone, cortisol), 
+                  cardiovascular health, mental health, sleep, and lifestyle factors.
+                </p>
+                <p>Key factors at play:</p>
+                <ul className="space-y-2 list-disc list-inside">
+                  <li><strong>Testosterone:</strong> Primary driver of libido and sexual function</li>
+                  <li><strong>Cortisol:</strong> High levels suppress testosterone and desire</li>
+                  <li><strong>Cardiovascular health:</strong> Blood flow is essential for function</li>
+                  <li><strong>Sleep:</strong> Testosterone is produced during sleep</li>
+                  <li><strong>Mental health:</strong> Stress and anxiety significantly impact desire</li>
+                </ul>
+              </div>
+            </section>
+
+            <SectionDivider />
+
+            {/* Common Myths */}
+            <section>
+              <h2 className="font-serif text-2xl font-semibold mb-4">Common myths — and the facts</h2>
+              <div className="space-y-4">
+                {myths.map((item, index) => (
+                  <div key={index} className="myth-box">
+                    <p className="text-sm font-medium text-destructive mb-2">
+                      ❌ Myth: "{item.myth}"
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      <Check className="inline h-4 w-4 text-primary mr-1" />
+                      <strong className="text-foreground">Fact:</strong> {item.fact}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <SectionDivider />
+
+            {/* Common Triggers */}
+            <section>
+              <h2 className="font-serif text-2xl font-semibold mb-4">What affects sexual health</h2>
+              <div className="grid sm:grid-cols-2 gap-4">
+                {triggers.map((group) => (
+                  <div key={group.category} className="rounded-lg border border-border p-4">
+                    <h3 className="font-semibold mb-2">{group.category}</h3>
+                    <ul className="space-y-1">
+                      {group.items.map((item, i) => (
+                        <li key={i} className="text-sm text-muted-foreground flex items-start gap-2">
+                          <span className="text-sage-400">•</span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </section>
+
+            <SectionDivider />
+
+            {/* Start Safe Routine */}
+            <section>
+              <h2 className="font-serif text-2xl font-semibold mb-4">"Start-safe" routine</h2>
+              <p className="text-muted-foreground mb-4">
+                These are evidence-based lifestyle factors that support sexual health. 
+                Address these before looking for quick fixes.
+              </p>
+              <div className="safe-start-box">
+                <ul className="space-y-3">
+                  {safeSteps.map((step, index) => (
+                    <li key={index} className="flex items-start gap-3">
+                      <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground text-xs font-medium">
+                        {index + 1}
+                      </div>
+                      <span className="text-sm">{step}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </section>
+
+            <SectionDivider />
+
+            {/* Food Guide */}
+            <FoodGuideExpanded 
+              macros={menSexualHealthMacros}
+              description="Good nutrition supports hormone production, blood flow, and overall vitality."
+              mealTips={[
+                "Cardiovascular health = sexual health — eat heart-healthy foods",
+                "Limit processed foods and excess sugar",
+                "Stay hydrated — dehydration affects energy and performance",
+                "Moderate alcohol — it may reduce inhibition but impairs function",
+              ]}
+            />
+
+            <SectionDivider />
+
+            {/* Exercise Library */}
+            <ExerciseLibrary 
+              categories={menSexualHealthExercises}
+              description="Cardiovascular fitness and strength both support sexual health."
+            />
+
+            <SectionDivider />
+
+            {/* Red Flags */}
+            <section>
+              <RedFlagsBox
+                items={redFlags}
+                urgentNote="If you experience any of these, please consult a urologist or your doctor."
+              />
+            </section>
+
+            <SectionDivider />
+
+            {/* FAQs */}
+            <FAQSection items={faqs} />
+          </div>
+
+          {/* Sidebar */}
+          <aside className="lg:col-span-1">
+            <div className="sticky top-24 space-y-6">
+              {/* Articles List */}
+              <div className="rounded-xl border border-border bg-card p-5">
+                <h3 className="font-semibold mb-4">Related articles</h3>
+                <ul className="space-y-2">
+                  {articles.map((article) => (
+                    <li key={article.href}>
+                      <Link 
+                        to={article.href}
+                        className="text-sm text-muted-foreground hover:text-primary transition-colors flex items-center gap-2"
+                      >
+                        <ArrowRight className="h-3 w-3" />
+                        {article.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Related Hubs */}
+              <div className="rounded-xl border border-border bg-card p-5">
+                <h3 className="font-semibold mb-4">Related topics</h3>
+                <div className="space-y-3">
+                  <Link to="/men/testosterone" className="block text-sm text-muted-foreground hover:text-primary transition-colors">
+                    → Testosterone & Energy
+                  </Link>
+                  <Link to="/men/weight-metabolism" className="block text-sm text-muted-foreground hover:text-primary transition-colors">
+                    → Weight & Metabolism
+                  </Link>
+                  <Link to="/men/mood-stress" className="block text-sm text-muted-foreground hover:text-primary transition-colors">
+                    → Mood, Stress & Sleep
+                  </Link>
+                </div>
+              </div>
+
+              {/* CTA */}
+              <div className="rounded-xl bg-gradient-to-br from-sage-100 to-terracotta-50 p-5 border border-sage-200">
+                <h3 className="font-semibold mb-2">Not sure where to start?</h3>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Take our short quiz to find your focus area.
+                </p>
+                <Button variant="hub" className="w-full" asChild>
+                  <Link to="/men/quiz">Take the quiz</Link>
+                </Button>
+              </div>
             </div>
-          </section>
-
-          {/* Red Flags */}
-          <RedFlagsBox 
-            title="When to See a Doctor"
-            items={redFlags}
-          />
-
-          {/* Food Guide */}
-          <FoodGuideExpanded 
-            title="Nutrition for Sexual Health"
-            description="Good nutrition supports hormone production, blood flow, and overall vitality."
-            macros={menSexualHealthMacros}
-            mealTips={[
-              "Cardiovascular health = sexual health — eat heart-healthy foods",
-              "Limit processed foods and excess sugar",
-              "Stay hydrated — dehydration affects energy and performance",
-              "Moderate alcohol — it may reduce inhibition but impairs function",
-            ]}
-          />
-
-          {/* Exercise Library */}
-          <ExerciseLibrary 
-            title="Exercise for Vitality"
-            description="Cardiovascular fitness and strength both support sexual health."
-            categories={menSexualHealthExercises}
-          />
-
-          {/* FAQs */}
-          <FAQSection 
-            title="Common Questions"
-            items={faqs}
-          />
-
-          {/* CTA */}
-          <section className="rounded-xl bg-gradient-to-br from-sage-50 to-terracotta-50 border border-sage-200 p-8 text-center">
-            <h2 className="font-serif text-xl font-semibold mb-3">
-              Not sure where to start?
-            </h2>
-            <p className="text-muted-foreground mb-6">
-              Take our quick assessment to find your focus area.
-            </p>
-            <Button variant="hero" asChild>
-              <Link to="/men/quiz">Take the quiz</Link>
-            </Button>
-          </section>
+          </aside>
         </div>
       </div>
     </Layout>

@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Heart } from "lucide-react";
 import logo from "@/assets/logo.png";
 
-const footerLinks = {
+const womenFooterLinks = {
   topics: [
     { href: "/periods", label: "Periods & Cycle" },
     { href: "/pcos", label: "PCOS / PCOD" },
@@ -25,7 +25,35 @@ const footerLinks = {
   ],
 };
 
+const menFooterLinks = {
+  topics: [
+    { href: "/men/testosterone", label: "Testosterone & Energy" },
+    { href: "/men/weight-metabolism", label: "Weight & Metabolism" },
+    { href: "/men/mood-stress", label: "Mood, Stress & Sleep" },
+    { href: "/men/sexual-health", label: "Sexual Health" },
+  ],
+  resources: [
+    { href: "/men/start-here", label: "Start Here" },
+    { href: "/men/quiz", label: "Find Your Path Quiz" },
+    { href: "/men/find-doctor", label: "Find a Doctor" },
+    { href: "/men/resources", label: "All Resources" },
+    { href: "/sources", label: "Our Sources" },
+  ],
+  about: [
+    { href: "/men/about", label: "About Us" },
+    { href: "/editorial-policy", label: "Editorial Policy" },
+    { href: "/disclaimer", label: "Medical Disclaimer" },
+    { href: "/privacy", label: "Privacy Policy" },
+    { href: "/men/contact", label: "Contact" },
+  ],
+};
+
 export function Footer() {
+  const location = useLocation();
+  const isMenSection = location.pathname.startsWith("/men");
+  const footerLinks = isMenSection ? menFooterLinks : womenFooterLinks;
+  const homeHref = isMenSection ? "/men" : "/";
+
   return (
     <footer className="border-t border-border bg-sage-50/50">
       {/* Persistent Disclaimer */}
@@ -43,16 +71,23 @@ export function Footer() {
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link to="/" className="flex items-center gap-2 mb-4">
+            <Link to={homeHref} className="flex items-center gap-2 mb-4">
               <img src={logo} alt="HormoneClarity" className="h-10 w-10" />
               <span className="font-serif text-xl font-semibold text-foreground">
                 HormoneClarity
               </span>
             </Link>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Empowering Indian women with clear, evidence-based hormonal health education. 
+              Empowering {isMenSection ? "men" : "Indian women"} with clear, evidence-based hormonal health education. 
               No fear-mongering. No miracle claims. Just clarity.
             </p>
+            {/* Section Switcher */}
+            <Link 
+              to={isMenSection ? "/" : "/men"} 
+              className="inline-block mt-4 text-sm text-primary hover:underline"
+            >
+              Switch to {isMenSection ? "Women's" : "Men's"} Health →
+            </Link>
           </div>
 
           {/* Topics */}
@@ -113,7 +148,7 @@ export function Footer() {
             © {new Date().getFullYear()} HormoneClarity. All rights reserved.
           </p>
           <p className="flex items-center gap-1 text-sm text-muted-foreground">
-            Made with <Heart className="h-4 w-4 text-primary" /> for Indian women's health
+            Made with <Heart className="h-4 w-4 text-primary" /> for {isMenSection ? "men's" : "Indian women's"} health
           </p>
         </div>
       </div>

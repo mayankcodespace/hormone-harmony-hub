@@ -8,6 +8,7 @@ import { HubCard } from "@/components/shared/HubCard";
 import { DisclaimerBanner } from "@/components/shared/DisclaimerBanner";
 import { SectionDivider } from "@/components/shared/SectionDivider";
 import { PDFResourceSection } from "@/components/shared/PDFResourceSection";
+import heroWellness from "@/assets/images/hero-wellness.jpg";
 
 const symptoms = [
   { id: "fatigue", label: "Persistent fatigue or low energy" },
@@ -74,25 +75,37 @@ export default function MenIndexPage() {
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-b from-sage-50 to-background py-16 sm:py-24">
         <div className="container">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground animate-fade-in">
-              Understand Your Hormones.{" "}
-              <span className="text-primary">Regain Control.</span>
-            </h1>
-            <p className="mt-6 text-lg sm:text-xl text-muted-foreground animate-slide-up">
-              Fatigue, belly fat, low motivation, poor sleep — often connected through hormones.
-              <span className="text-foreground font-medium"> No hype. No bro-science. Just clarity.</span>
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up">
-              <Button variant="hero" size="xl" asChild>
-                <a href="#start-here">
-                  Start here
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </a>
-              </Button>
-              <Button variant="hero-outline" size="lg" asChild>
-                <Link to="/men/quiz">Take the quiz</Link>
-              </Button>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="text-center lg:text-left">
+              <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground animate-fade-in">
+                Understand Your Hormones.{" "}
+                <span className="text-primary">Regain Control.</span>
+              </h1>
+              <p className="mt-6 text-lg sm:text-xl text-muted-foreground animate-slide-up">
+                Fatigue, belly fat, low motivation, poor sleep — often connected through hormones.
+                <span className="text-foreground font-medium"> No hype. No bro-science. Just clarity.</span>
+              </p>
+              <div className="mt-8 flex flex-col sm:flex-row items-center lg:justify-start justify-center gap-4 animate-slide-up">
+                <Button variant="hero" size="xl" asChild>
+                  <a href="#start-here">
+                    Start here
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </a>
+                </Button>
+                <Button variant="hero-outline" size="lg" asChild>
+                  <Link to="/men/quiz">Take the quiz</Link>
+                </Button>
+              </div>
+            </div>
+            
+            <div className="relative hidden lg:block">
+              <img 
+                src={heroWellness} 
+                alt="Man focused on health and wellness" 
+                className="rounded-2xl shadow-lg w-full max-w-lg mx-auto"
+              />
+              <div className="absolute -bottom-6 -left-6 h-32 w-32 rounded-full bg-primary/10 blur-2xl" />
+              <div className="absolute -top-6 -right-6 h-40 w-40 rounded-full bg-terracotta-100/50 blur-2xl" />
             </div>
           </div>
         </div>
