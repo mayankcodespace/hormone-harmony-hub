@@ -9,7 +9,39 @@ import { SectionDivider } from "@/components/shared/SectionDivider";
 import { Button } from "@/components/ui/button";
 import { FoodGuideExpanded, menSexualHealthMacros } from "@/components/shared/FoodGuideExpanded";
 import { ExerciseLibrary, menSexualHealthExercises } from "@/components/shared/ExerciseLibrary";
-import gentleYoga from "@/assets/images/gentle-yoga.jpg";
+import { SourcesAccordion, Citation } from "@/components/shared/CitationSystem";
+import menRelationship from "@/assets/images/men-relationship.jpg";
+
+const citations: Citation[] = [
+  {
+    id: 1,
+    title: "Testosterone and male sexual function",
+    source: "Journal of Clinical Endocrinology & Metabolism, 2019",
+    url: "https://academic.oup.com/jcem/article/104/7/2602/5335218",
+    accessDate: "January 2026",
+  },
+  {
+    id: 2,
+    title: "Erectile dysfunction and cardiovascular disease",
+    source: "European Heart Journal, 2020",
+    url: "https://academic.oup.com/eurheartj/article/41/24/2267/5823647",
+    accessDate: "January 2026",
+  },
+  {
+    id: 3,
+    title: "Lifestyle factors and male sexual health",
+    source: "Andrology, 2021",
+    url: "https://pubmed.ncbi.nlm.nih.gov/33067929/",
+    accessDate: "January 2026",
+  },
+  {
+    id: 4,
+    title: "Psychological factors in sexual dysfunction",
+    source: "Sexual Medicine Reviews, 2020",
+    url: "https://pubmed.ncbi.nlm.nih.gov/31928919/",
+    accessDate: "January 2026",
+  },
+];
 
 const myths = [
   {
@@ -77,6 +109,11 @@ const faqs: FAQItem[] = [
 const articles = [
   { title: "Testosterone & Libido", href: "/men/sexual-health/testosterone-libido" },
   { title: "Erectile Function Basics", href: "/men/sexual-health/erectile-function" },
+  { title: "Stress & Sexual Health", href: "/men/sexual-health/stress-impact" },
+  { title: "Sleep & Sexual Health", href: "/men/sexual-health/sleep-impact" },
+  { title: "Heart Health Connection", href: "/men/sexual-health/cardiovascular" },
+  { title: "Male Fertility", href: "/men/sexual-health/fertility" },
+  { title: "Dopamine & Desire", href: "/men/sexual-health/dopamine-desire" },
 ];
 
 export default function SexualHealthPage() {
@@ -104,8 +141,8 @@ export default function SexualHealthPage() {
             <div className="relative">
               <div className="rounded-3xl overflow-hidden bg-white shadow-sm aspect-[4/3]">
                 <img
-                  src={gentleYoga}
-                  alt="Wellness and vitality"
+                  src={menRelationship}
+                  alt="Couple wellness and vitality"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -241,6 +278,9 @@ export default function SexualHealthPage() {
 
             {/* FAQs */}
             <FAQSection items={faqs} />
+
+            {/* Sources & References */}
+            <SourcesAccordion citations={citations} lastUpdated="January 2026" />
           </div>
 
           {/* Sidebar */}

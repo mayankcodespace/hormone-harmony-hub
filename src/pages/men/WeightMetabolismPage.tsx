@@ -9,7 +9,39 @@ import { SectionDivider } from "@/components/shared/SectionDivider";
 import { Button } from "@/components/ui/button";
 import { FoodGuideExpanded, menWeightMacros } from "@/components/shared/FoodGuideExpanded";
 import { ExerciseLibrary, menWeightExercises } from "@/components/shared/ExerciseLibrary";
-import healthyFoodIndian from "@/assets/images/healthy-food-indian.jpg";
+import { SourcesAccordion, Citation } from "@/components/shared/CitationSystem";
+import menNutrition from "@/assets/images/men-nutrition.jpg";
+
+const citations: Citation[] = [
+  {
+    id: 1,
+    title: "Visceral fat and metabolic syndrome in men",
+    source: "Diabetes Care, 2019",
+    url: "https://diabetesjournals.org/care/article/42/1/39/36284",
+    accessDate: "January 2026",
+  },
+  {
+    id: 2,
+    title: "Insulin resistance and hormonal weight gain",
+    source: "Endocrine Reviews, 2020",
+    url: "https://pubmed.ncbi.nlm.nih.gov/31790154/",
+    accessDate: "January 2026",
+  },
+  {
+    id: 3,
+    title: "Cortisol and abdominal fat distribution",
+    source: "Obesity Reviews, 2018",
+    url: "https://pubmed.ncbi.nlm.nih.gov/29700912/",
+    accessDate: "January 2026",
+  },
+  {
+    id: 4,
+    title: "Protein intake for weight management",
+    source: "American Journal of Clinical Nutrition, 2021",
+    url: "https://pubmed.ncbi.nlm.nih.gov/33586699/",
+    accessDate: "January 2026",
+  },
+];
 
 const myths = [
   {
@@ -110,8 +142,8 @@ export default function WeightMetabolismPage() {
             <div className="relative">
               <div className="rounded-3xl overflow-hidden bg-white shadow-sm aspect-[4/3]">
                 <img
-                  src={healthyFoodIndian}
-                  alt="Healthy Indian food for weight management"
+                  src={menNutrition}
+                  alt="Man preparing healthy food for weight management"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -247,6 +279,9 @@ export default function WeightMetabolismPage() {
 
             {/* FAQs */}
             <FAQSection items={faqs} />
+
+            {/* Sources & References */}
+            <SourcesAccordion citations={citations} lastUpdated="January 2026" />
           </div>
 
           {/* Sidebar */}

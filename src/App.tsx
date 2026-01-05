@@ -106,7 +106,11 @@ import NutritionMentalHealthMenArticle from "./pages/articles/men/mood/Nutrition
 // Men's articles - Sexual Health
 import TestosteroneLibidoArticle from "./pages/articles/men/sexual/TestosteroneLibidoArticle";
 import ErectileFunctionArticle from "./pages/articles/men/sexual/ErectileFunctionArticle";
-
+import StressImpactArticle from "./pages/articles/men/sexual/StressImpactArticle";
+import SleepImpactArticle from "./pages/articles/men/sexual/SleepImpactArticle";
+import CardiovascularArticle from "./pages/articles/men/sexual/CardiovascularArticle";
+import FertilityMenArticle from "./pages/articles/men/sexual/FertilityArticle";
+import DopamineArticle from "./pages/articles/men/sexual/DopamineArticle";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -218,7 +222,11 @@ const App = () => (
           {/* Men's Sexual Health articles */}
           <Route path="/men/sexual-health/testosterone-libido" element={<TestosteroneLibidoArticle />} />
           <Route path="/men/sexual-health/erectile-function" element={<ErectileFunctionArticle />} />
-          
+          <Route path="/men/sexual-health/stress-impact" element={<StressImpactArticle />} />
+          <Route path="/men/sexual-health/sleep-impact" element={<SleepImpactArticle />} />
+          <Route path="/men/sexual-health/cardiovascular" element={<CardiovascularArticle />} />
+          <Route path="/men/sexual-health/fertility" element={<FertilityMenArticle />} />
+          <Route path="/men/sexual-health/dopamine-desire" element={<DopamineArticle />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

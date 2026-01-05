@@ -9,7 +9,39 @@ import { SectionDivider } from "@/components/shared/SectionDivider";
 import { Button } from "@/components/ui/button";
 import { FoodGuideExpanded, menTestosteroneMacros } from "@/components/shared/FoodGuideExpanded";
 import { ExerciseLibrary, menTestosteroneExercises } from "@/components/shared/ExerciseLibrary";
-import natureWalk from "@/assets/images/nature-walk.jpg";
+import { SourcesAccordion, Citation } from "@/components/shared/CitationSystem";
+import menFitness from "@/assets/images/men-fitness.jpg";
+
+const citations: Citation[] = [
+  {
+    id: 1,
+    title: "Testosterone and aging: clinical research directions",
+    source: "National Academy of Sciences, 2004",
+    url: "https://www.ncbi.nlm.nih.gov/books/NBK216171/",
+    accessDate: "January 2026",
+  },
+  {
+    id: 2,
+    title: "Sleep, sex steroid hormones, sexual activities, and aging in Asian men",
+    source: "Journal of Andrology, 2010",
+    url: "https://pubmed.ncbi.nlm.nih.gov/20467048/",
+    accessDate: "January 2026",
+  },
+  {
+    id: 3,
+    title: "Resistance training and testosterone levels in men",
+    source: "Sports Medicine, 2018",
+    url: "https://pubmed.ncbi.nlm.nih.gov/29063453/",
+    accessDate: "January 2026",
+  },
+  {
+    id: 4,
+    title: "Effect of vitamin D supplementation on testosterone levels",
+    source: "Hormone and Metabolic Research, 2011",
+    url: "https://pubmed.ncbi.nlm.nih.gov/21154195/",
+    accessDate: "January 2026",
+  },
+];
 
 const faqs: FAQItem[] = [
   {
@@ -75,8 +107,8 @@ export default function TestosteronePage() {
             <div className="relative">
               <div className="rounded-3xl overflow-hidden bg-white shadow-sm aspect-[4/3]">
                 <img
-                  src={natureWalk}
-                  alt="Active man focusing on health"
+                  src={menFitness}
+                  alt="Active man focusing on health and fitness"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -151,6 +183,9 @@ export default function TestosteronePage() {
 
             {/* FAQs */}
             <FAQSection items={faqs} />
+
+            {/* Sources & References */}
+            <SourcesAccordion citations={citations} lastUpdated="January 2026" />
           </div>
 
           {/* Sidebar */}
