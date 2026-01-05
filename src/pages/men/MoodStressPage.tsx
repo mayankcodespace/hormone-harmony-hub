@@ -9,7 +9,39 @@ import { SectionDivider } from "@/components/shared/SectionDivider";
 import { Button } from "@/components/ui/button";
 import { FoodGuideExpanded, menMoodMacros } from "@/components/shared/FoodGuideExpanded";
 import { ExerciseLibrary, menMoodExercises } from "@/components/shared/ExerciseLibrary";
-import peacefulSleep from "@/assets/images/peaceful-sleep.jpg";
+import { SourcesAccordion, Citation } from "@/components/shared/CitationSystem";
+import menMeditation from "@/assets/images/men-meditation.jpg";
+
+const citations: Citation[] = [
+  {
+    id: 1,
+    title: "Testosterone and depression in men",
+    source: "JAMA Psychiatry, 2019",
+    url: "https://jamanetwork.com/journals/jamapsychiatry/fullarticle/2736594",
+    accessDate: "January 2026",
+  },
+  {
+    id: 2,
+    title: "Chronic stress and hormonal dysregulation",
+    source: "Psychoneuroendocrinology, 2020",
+    url: "https://pubmed.ncbi.nlm.nih.gov/32240951/",
+    accessDate: "January 2026",
+  },
+  {
+    id: 3,
+    title: "Sleep and mental health in men",
+    source: "Sleep Medicine Reviews, 2021",
+    url: "https://pubmed.ncbi.nlm.nih.gov/33714872/",
+    accessDate: "January 2026",
+  },
+  {
+    id: 4,
+    title: "Exercise as treatment for depression",
+    source: "British Journal of Sports Medicine, 2023",
+    url: "https://bjsm.bmj.com/content/57/18/1203",
+    accessDate: "January 2026",
+  },
+];
 
 const myths = [
   {
@@ -110,8 +142,8 @@ export default function MoodStressPage() {
             <div className="relative">
               <div className="rounded-3xl overflow-hidden bg-white shadow-sm aspect-[4/3]">
                 <img
-                  src={peacefulSleep}
-                  alt="Peaceful rest and mental wellness"
+                  src={menMeditation}
+                  alt="Man practicing meditation for mental wellness"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -255,6 +287,9 @@ export default function MoodStressPage() {
 
             {/* FAQs */}
             <FAQSection items={faqs} />
+
+            {/* Sources & References */}
+            <SourcesAccordion citations={citations} lastUpdated="January 2026" />
           </div>
 
           {/* Sidebar */}

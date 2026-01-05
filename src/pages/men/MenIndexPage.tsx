@@ -8,7 +8,7 @@ import { HubCard } from "@/components/shared/HubCard";
 import { DisclaimerBanner } from "@/components/shared/DisclaimerBanner";
 import { SectionDivider } from "@/components/shared/SectionDivider";
 import { PDFResourceSection } from "@/components/shared/PDFResourceSection";
-import heroWellness from "@/assets/images/hero-wellness.jpg";
+import menFitness from "@/assets/images/men-fitness.jpg";
 
 const symptoms = [
   { id: "fatigue", label: "Persistent fatigue or low energy" },
@@ -100,7 +100,7 @@ export default function MenIndexPage() {
             
             <div className="relative hidden lg:block">
               <img 
-                src={heroWellness} 
+                src={menFitness} 
                 alt="Man focused on health and wellness" 
                 className="rounded-2xl shadow-lg w-full max-w-lg mx-auto"
               />
