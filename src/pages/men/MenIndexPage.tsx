@@ -8,6 +8,7 @@ import { HubCard } from "@/components/shared/HubCard";
 import { DisclaimerBanner } from "@/components/shared/DisclaimerBanner";
 import { SectionDivider } from "@/components/shared/SectionDivider";
 import { PDFResourceSection } from "@/components/shared/PDFResourceSection";
+import { SymptomTracker } from "@/components/shared/SymptomTracker";
 import menFitness from "@/assets/images/men-fitness.jpg";
 
 const symptoms = [
@@ -209,10 +210,19 @@ export default function MenIndexPage() {
 
       <SectionDivider />
 
+      {/* Symptom Tracker Section */}
+      <section className="container py-12">
+        <div className="mx-auto max-w-2xl">
+          <SymptomTracker variant="men" />
+        </div>
+      </section>
+
+      <SectionDivider />
+
       {/* PDF Resource Section */}
       <section className="container py-12">
         <div className="mx-auto max-w-2xl">
-          <PDFResourceSection />
+          <PDFResourceSection section="men" />
         </div>
       </section>
     </Layout>

@@ -4,22 +4,45 @@ import { Button } from "@/components/ui/button";
 interface PDFResourceSectionProps {
   className?: string;
   variant?: "default" | "compact";
+  section?: "women" | "men";
 }
 
-export function PDFResourceSection({ className, variant = "default" }: PDFResourceSectionProps) {
+const womenFrameworkIncludes = [
+  "Flexible daily framework (not a rigid routine)",
+  "Food category examples (protein, carbs, fats)",
+  "Budget-friendly Indian food options",
+  "Gentle movement ideas for each cycle phase",
+  "Sleep & stress basics for hormonal balance",
+  "When to seek professional help",
+];
+
+const menFrameworkIncludes = [
+  "Daily habits for testosterone support",
+  "Protein, carbs, and fats for men's hormones",
+  "Budget-friendly Indian food options",
+  "Exercise recommendations for hormonal health",
+  "Sleep optimization for testosterone",
+  "Stress management techniques",
+];
+
+export function PDFResourceSection({ className, variant = "default", section = "women" }: PDFResourceSectionProps) {
+  const isMen = section === "men";
+  
   const handleDownload = () => {
-    // Open the PDF in a new tab (will be a static file in public folder)
-    window.open("/hormone-friendly-framework.pdf", "_blank");
+    // Open the appropriate PDF in a new tab
+    const pdfPath = isMen 
+      ? "/hormone-friendly-framework-men.pdf" 
+      : "/hormone-friendly-framework.pdf";
+    window.open(pdfPath, "_blank");
   };
 
-  const frameworkIncludes = [
-    "Flexible daily framework (not a rigid routine)",
-    "Food category examples (protein, carbs, fats)",
-    "Budget-friendly Indian food options",
-    "Gentle movement ideas",
-    "Sleep & stress basics",
-    "When to seek professional help",
-  ];
+  const frameworkIncludes = isMen ? menFrameworkIncludes : womenFrameworkIncludes;
+  const title = isMen 
+    ? "Men's Hormone-Friendly Daily Framework" 
+    : "Hormone-Friendly Daily Framework";
+  const subtitle = isMen
+    ? "A practical starting point for supporting testosterone and overall hormonal health — not a replacement for professional care."
+    : "A calm starting point for supporting your hormonal health — not a replacement for professional care.";
 
   if (variant === "compact") {
     return (
@@ -30,10 +53,10 @@ export function PDFResourceSection({ className, variant = "default" }: PDFResour
           </div>
           <div className="flex-1">
             <h3 className="font-serif text-lg font-semibold mb-1">
-              Hormone-Friendly Daily Framework (PDF)
+              {title} (PDF)
             </h3>
             <p className="text-sm text-muted-foreground mb-3">
-              A gentle starting point for supporting your hormonal health — not a replacement for professional care.
+              {subtitle}
             </p>
             <Button variant="hero" size="sm" onClick={handleDownload}>
               <Download className="h-4 w-4 mr-2" />
@@ -53,11 +76,10 @@ export function PDFResourceSection({ className, variant = "default" }: PDFResour
         </div>
         
         <h2 className="font-serif text-2xl font-semibold mb-3">
-          A Gentle Hormone-Friendly Daily Framework
+          {title}
         </h2>
         <p className="text-muted-foreground mb-6">
-          A calm starting point for supporting your hormonal health — not a replacement for professional care. 
-          Simple, practical ideas that are generally safe for most people.
+          {subtitle}
         </p>
 
         <div className="text-left bg-background/60 rounded-lg p-6 mb-6">
