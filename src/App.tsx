@@ -18,6 +18,7 @@ import ResourcesPage from "./pages/ResourcesPage";
 import QuizPage from "./pages/QuizPage";
 import StartHerePage from "./pages/StartHerePage";
 import FindDoctorPage from "./pages/FindDoctorPage";
+import SymptomTrackerPage from "./pages/SymptomTrackerPage";
 import NotFound from "./pages/NotFound";
 
 // Period articles
@@ -72,6 +73,7 @@ import MenQuizPage from "./pages/men/MenQuizPage";
 import MenFindDoctorPage from "./pages/men/MenFindDoctorPage";
 import MenAboutPage from "./pages/men/MenAboutPage";
 import MenContactPage from "./pages/men/MenContactPage";
+import MenSymptomTrackerPage from "./pages/men/MenSymptomTrackerPage";
 
 // Men's articles - Testosterone
 import TestosteroneBasicsArticle from "./pages/articles/men/testosterone/TestosteroneBasicsArticle";
@@ -135,6 +137,7 @@ const App = () => (
           <Route path="/quiz" element={<QuizPage />} />
           <Route path="/start-here" element={<StartHerePage />} />
           <Route path="/find-doctor" element={<FindDoctorPage />} />
+          <Route path="/symptom-tracker" element={<SymptomTrackerPage />} />
           
           {/* Period articles */}
           <Route path="/periods/cycle-phases" element={<CyclePhasesArticle />} />
@@ -188,6 +191,7 @@ const App = () => (
           <Route path="/men/find-doctor" element={<MenFindDoctorPage />} />
           <Route path="/men/about" element={<MenAboutPage />} />
           <Route path="/men/contact" element={<MenContactPage />} />
+          <Route path="/men/symptom-tracker" element={<MenSymptomTrackerPage />} />
 
           {/* Men's Testosterone articles */}
           <Route path="/men/testosterone/basics" element={<TestosteroneBasicsArticle />} />
