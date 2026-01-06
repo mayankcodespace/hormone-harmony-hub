@@ -24,8 +24,8 @@ const womenNavLinks = [
       { href: "/mood-pms", label: "Mood & PMS" },
     ],
   },
+  { href: "/symptom-tracker", label: "Symptom Tracker" },
   { href: "/resources", label: "Resources" },
-  { href: "/about", label: "About" },
 ];
 
 const menNavLinks = [
@@ -40,8 +40,8 @@ const menNavLinks = [
       { href: "/men/sexual-health", label: "Sexual Health" },
     ],
   },
+  { href: "/men/symptom-tracker", label: "Symptom Tracker" },
   { href: "/men/resources", label: "Resources" },
-  { href: "/men/about", label: "About" },
 ];
 
 export function Navbar() {
