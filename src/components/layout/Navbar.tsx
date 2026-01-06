@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { cn } from "@/lib/utils";
 import logo from "@/assets/logo.png";
+import { GlobalSearch } from "@/components/shared/GlobalSearch";
 
 const womenNavLinks = [
   { href: "/", label: "Home" },
@@ -103,6 +104,11 @@ export function Navbar() {
               </Link>
             )
           )}
+          
+          {/* Global Search */}
+          <div className="ml-2">
+            <GlobalSearch />
+          </div>
           
           {/* Gender Switcher */}
           <div className="ml-2 border-l border-border pl-2">
